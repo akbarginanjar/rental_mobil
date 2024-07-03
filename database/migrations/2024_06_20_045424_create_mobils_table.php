@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('mobils', function (Blueprint $table) {
             $table->id();
-            $table->string('gambar');
+            $table->string('gambar')->default('');
             $table->string('plat');
             $table->string('nomor_mobil');
             $table->string('merk');

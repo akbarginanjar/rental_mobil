@@ -30,13 +30,19 @@ class MobilController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'gambar' => 'required|image|max:2048',
+            'gambar' => 'required',
             'plat' => 'required',
             'merk' => 'required',
             'harga_sewa' => 'required',
         ]);
 
-        $mobil = new Mobil;
+        $mobil = new Mobil();
+        if ($request->hasFile('gambar')) {
+            $image = $request->file('gambar');
+            $name = rand(1000, 9999) . $image->getClientOriginalName();
+            $image->move('images/mobil/', $name);
+            $mobil->gambar = $name;
+        }
         $mobil->plat = $request->plat;
         $mobil->nomor_mobil = $request->nomor_mobil;
         $mobil->merk = $request->merk;
@@ -44,15 +50,8 @@ class MobilController extends Controller
         $mobil->deskripsi = $request->deskripsi;
         $mobil->harga_sewa = $request->harga_sewa;
         $mobil->status = 'Tersedia';
-        // upload image / foto
-        if ($request->hasFile('gambar')) {
-            $image = $request->file('gambar');
-            $name = rand(1000, 9999) . $image->getClientOriginalName();
-            $image->move('images/mobil/', $name);
-            $mobil->gambar = $name;
-        }
         $mobil->save();
-        return redirect('admin.index');
+        return redirect()->route('mobil.index');
     }
 
     /**
@@ -78,28 +77,27 @@ class MobilController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'gambar' => 'required|image|max:2048',
+            // 'gambar' => 'required',
             'plat' => 'required',
             'merk' => 'required',
             'harga_sewa' => 'required',
         ]);
-
+        
         $mobil = Mobil::findOrFail($id);
-        $mobil->plat = $request->plat;
-        $mobil->nomor_mobil = $request->nomor_mobil;
-        $mobil->merk = $request->merk;
-        $mobil->jenis = $request->jenis;
-        $mobil->deskripsi = $request->deskripsi;
-        $mobil->harga_sewa = $request->harga_sewa;
-        // upload image / foto
         if ($request->hasFile('gambar')) {
             $image = $request->file('gambar');
             $name = rand(1000, 9999) . $image->getClientOriginalName();
             $image->move('images/mobil/', $name);
             $mobil->gambar = $name;
         }
+        $mobil->plat = $request->plat;
+        $mobil->nomor_mobil = $request->nomor_mobil;
+        $mobil->merk = $request->merk;
+        $mobil->jenis = $request->jenis;
+        $mobil->deskripsi = $request->deskripsi;
+        $mobil->harga_sewa = $request->harga_sewa;
         $mobil->save();
-        return redirect('admin.index');
+        return redirect()->route('mobil.index');
     }
 
     /**
