@@ -30,11 +30,6 @@
 </head>
 
 <body>
-    @if (Auth::user()->role_id != 1)
-        <script>
-            window.location = "/";
-        </script>
-    @endif
     <div class="preloader">
         <div class="lds-ripple">
             <div class="lds-pos"></div>

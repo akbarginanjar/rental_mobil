@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MobilController;
+use App\Http\Middleware\ AdminMiddleware;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
@@ -13,9 +14,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//ADMIN
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
+
+Route::middleware(['auth','admin'])->prefix('admin')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    });
+    Route::resource('/mobil', MobilController::class);
+    Route::resource('/user', UserController::class);
+    
 });
-Route::resource('/admin/mobil', MobilController::class);
-Route::resource('/admin/user', UserController::class);
