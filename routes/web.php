@@ -3,12 +3,16 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MobilController;
+use App\Http\Controllers\MemberController;
 use App\Http\Middleware\ AdminMiddleware;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/mobil', [MemberController::class, 'mobil']);
+Route::get('/mobil/{id}', [MemberController::class, 'mobilDetail']);
 
 Auth::routes();
 
@@ -28,5 +32,5 @@ Route::middleware(['auth','member'])->prefix('member')->group(function () {
     Route::get('/profil', function () {
         return view('member.profil');
     });
-    
+    Route::post('/mobil/{id}/sewa', [MemberController::class, 'sewa']);
 });

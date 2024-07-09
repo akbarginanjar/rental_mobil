@@ -10,9 +10,12 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="/" class="nav-link">Beranda</a></li>
-                <li class="nav-item"><a href="/mobil" class="nav-link">Mobil</a></li>
-                <li class="nav-item"><a href="/tentang-kami" class="nav-link">Tentang Kami</a></li>
+                <li class="nav-item {{ Request::is('/') ? 'active' : '' }}"><a href="/"
+                        class="nav-link">Beranda</a></li>
+                <li class="nav-item {{ Request::is('mobil') ? 'active' : '' }}"><a href="/mobil"
+                        class="nav-link">Mobil</a></li>
+                <li class="nav-item {{ Request::is('tentang-kami') ? 'active' : '' }}"><a href="/tentang-kami"
+                        class="nav-link">Tentang Kami</a></li>
                 @guest
                     <li class="nav-item"><a href="/register" class="btn btn-outline-primary mt-2 mr-3">Register</a></li>
                     <li class="nav-item"><a href="/login" class="btn btn-primary mt-2">Login</a></li>

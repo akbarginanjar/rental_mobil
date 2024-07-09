@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="{{ asset('assets/member/css/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/member/css/magnific-popup.css') }}">
 
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/icon-moobil-erase.png') }}">
+
     <link rel="stylesheet" href="{{ asset('assets/member/css/aos.css') }}">
 
     <link rel="stylesheet" href="{{ asset('assets/member/css/ionicons.min.css') }}">

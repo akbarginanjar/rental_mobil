@@ -14,7 +14,7 @@
     <title>Admin Rental Mobil</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/Flexy-admin-lite/" />
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/icon-moobil.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/icon-moobil-erase.png') }}">
     <!-- Custom CSS -->
     <link href="{{ asset('assets/admin/assets/libs/chartist/dist/chartist.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/admin/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css') }}"
