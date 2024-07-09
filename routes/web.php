@@ -23,3 +23,10 @@ Route::middleware(['auth','admin'])->prefix('admin')->group(function () {
     Route::resource('/user', UserController::class);
     
 });
+
+Route::middleware(['auth','member'])->prefix('member')->group(function () {
+    Route::get('/profil', function () {
+        return view('member.profil');
+    });
+    
+});

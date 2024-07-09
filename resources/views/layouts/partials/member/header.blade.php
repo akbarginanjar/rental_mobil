@@ -13,8 +13,20 @@
                 <li class="nav-item active"><a href="/" class="nav-link">Beranda</a></li>
                 <li class="nav-item"><a href="/mobil" class="nav-link">Mobil</a></li>
                 <li class="nav-item"><a href="/tentang-kami" class="nav-link">Tentang Kami</a></li>
-                <li class="nav-item"><a href="/register" class="btn btn-outline-primary mt-2 mr-3">Register</a></li>
-                <li class="nav-item"><a href="/login" class="btn btn-primary mt-2">Login</a></li>
+                @guest
+                    <li class="nav-item"><a href="/register" class="btn btn-outline-primary mt-2 mr-3">Register</a></li>
+                    <li class="nav-item"><a href="/login" class="btn btn-primary mt-2">Login</a></li>
+                @else
+                    <li class="nav-item"><a href="/member/profil" class="nav-link">{{ Auth::user()->name }} <i
+                                class="fa fa-user ml-2"></i></a></li>
+                    <li class="nav-item"><a href="" class="btn btn-light mt-2" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">Logout</a>
+                    </li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                @endguest
             </ul>
         </div>
     </div>
