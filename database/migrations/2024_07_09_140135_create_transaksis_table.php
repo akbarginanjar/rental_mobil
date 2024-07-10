@@ -23,10 +23,10 @@ return new class extends Migration
                     $table->foreign('id_mobil')
                     ->references('id')
                     ->on('mobils');
-            $table->string('tgl_sewa');
-            $table->string('lama_sewa');
+            $table->date('tgl_sewa');
+            $table->integer('lama_sewa');
             $table->string('total_bayar');
-            $table->string('bukti_bayar');
+            $table->string('bukti_bayar')->nullable();
             $table->string('tgl_pengembalian');
             $table->timestamps();
         });

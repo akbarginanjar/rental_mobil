@@ -27,7 +27,7 @@
                                 style="background-image: url({{ $item->gambar() }});">
                             </div>
                             <div class="text">
-                                <h2 class="mb-0"><a href="/mobil/{{ $item->id }}">{{ $item->merk }}</a></h2>
+                                <h2 class="mb-0"><a href="/mobil/{{ $item->slug }}">{{ $item->merk }}</a></h2>
                                 <div class="d-flex mb-1">
                                     <span class="cat">{{ $item->jenis }}</span>
                                     <p class="price ml-auto">Rp.
@@ -42,7 +42,7 @@
                                         style="padding: 2px 5px; font-size: 12px; color:white;">
                                         Sedang disewa</div><br>
                                 @endif
-                                <a href="/mobil/{{ $item->id }}" class="btn btn-secondary btn-block mt-3">Booking</a>
+                                <a href="/mobil/{{ $item->slug }}" class="btn btn-secondary btn-block mt-3">Booking</a>
                             </div>
                         </div>
                     </div>

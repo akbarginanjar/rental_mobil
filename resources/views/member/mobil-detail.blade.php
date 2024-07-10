@@ -15,7 +15,6 @@
             </div>
         </div>
     </section>
-
     <section class="ftco-section bg-light">
         <div class="container">
             <div class="card border-0 ftco-animate"
@@ -54,10 +53,16 @@
                             <b style="font-size: 12px;">Deskripsi</b><br>
                             {{ $mobil->deskripsi }}
                             <hr>
-                            <form action="/member/mobil/{{ $mobil->id }}/sewa" method="post">
+                            <form action="/member/mobil/{{ $mobil->slug }}/sewa" method="post">
                                 @csrf
-                                <button type="submit" class="btn btn-primary float-right"
-                                    style="border-radius: 30px; width: 200px;">Sewa
+                                <div class="input-group input-group-sm mb-3" style="display: flex; justify-content: right;">
+                                    <input type="number" name="lama_sewa"
+                                        class="form-control col-sm-4"aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="basic-addon2">Hari</span>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary float-right" style=" width: 220px;">Sewa
                                     Sekarang</button>
                             </form>
                         </div>

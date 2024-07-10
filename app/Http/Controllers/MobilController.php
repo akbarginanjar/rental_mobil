@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Mobil;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class MobilController extends Controller
 {
@@ -47,6 +48,7 @@ class MobilController extends Controller
         $mobil->nomor_mobil = $request->nomor_mobil;
         $mobil->merk = $request->merk;
         $mobil->jenis = $request->jenis;
+        $mobil->slug = Str::slug($request->merk);
         $mobil->deskripsi = $request->deskripsi;
         $mobil->harga_sewa = $request->harga_sewa;
         $mobil->status = 'Tersedia';
@@ -94,6 +96,7 @@ class MobilController extends Controller
         $mobil->nomor_mobil = $request->nomor_mobil;
         $mobil->merk = $request->merk;
         $mobil->jenis = $request->jenis;
+        $mobil->slug = Str::slug($request->merk);
         $mobil->deskripsi = $request->deskripsi;
         $mobil->harga_sewa = $request->harga_sewa;
         $mobil->save();

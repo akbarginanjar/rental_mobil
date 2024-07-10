@@ -12,7 +12,7 @@ Route::get('/', function () {
 });
 
 Route::get('/mobil', [MemberController::class, 'mobil']);
-Route::get('/mobil/{id}', [MemberController::class, 'mobilDetail']);
+Route::get('/mobil/{mobil:slug}', [MemberController::class, 'mobilDetail']);
 
 Auth::routes();
 
@@ -32,5 +32,7 @@ Route::middleware(['auth','member'])->prefix('member')->group(function () {
     Route::get('/profil', function () {
         return view('member.profil');
     });
-    Route::post('/mobil/{id}/sewa', [MemberController::class, 'sewa']);
+    Route::post('/proses', [MemberController::class, 'simpan']);
+    Route::post('/mobil/{mobil:slug}/sewa', [MemberController::class, 'sewa']);
+    Route::post('/mobil/{mobil:slug}/prosesSewa', [MemberController::class, 'prosesSewa']);
 });
