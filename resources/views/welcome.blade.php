@@ -23,8 +23,8 @@
             <div class="row no-gutters">
                 <div class="col-md-12	featured-top">
                     <div class="row no-gutters">
-                        <div class="col-md-4 d-flex align-items-center">
-                            <form action="#" class="request-form ftco-animate bg-primary">
+                        <div class="col-md d-flex align-items-center">
+                            {{-- <form action="#" class="request-form ftco-animate bg-primary">
                                 <h2>Make your trip</h2>
                                 <div class="form-group">
                                     <label for="" class="label">Pick-up location</label>
@@ -51,9 +51,9 @@
                                 <div class="form-group">
                                     <input type="submit" value="Rent A Car Now" class="btn btn-secondary py-3 px-4">
                                 </div>
-                            </form>
+                            </form> --}}
                         </div>
-                        <div class="col-md-8 d-flex align-items-center">
+                        <div class="col-md-12 d-flex align-items-center">
                             <div class="services-wrap rounded-right w-100">
                                 <h3 class="heading-section mb-4">Better Way to Rent Your Perfect Cars</h3>
                                 <div class="row d-flex mb-4">
@@ -94,7 +94,7 @@
     </section>
 
 
-    <section class="ftco-section ftco-no-pt bg-light">
+    {{-- <section class="ftco-section ftco-no-pt bg-light">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-12 heading-section text-center ftco-animate mb-5">
@@ -116,9 +116,8 @@
                                         <span class="cat">Cheverolet</span>
                                         <p class="price ml-auto">$500 <span>/day</span></p>
                                     </div>
-                                    <p class="d-flex mb-0 d-block"><a href="#"
-                                            class="btn btn-primary py-2 mr-1">Book now</a> <a href="#"
-                                            class="btn btn-secondary py-2 ml-1">Details</a></p>
+                                    <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book
+                                            now</a> <a href="#" class="btn btn-secondary py-2 ml-1">Details</a></p>
                                 </div>
                             </div>
                         </div>
@@ -133,9 +132,8 @@
                                         <span class="cat">Cheverolet</span>
                                         <p class="price ml-auto">$500 <span>/day</span></p>
                                     </div>
-                                    <p class="d-flex mb-0 d-block"><a href="#"
-                                            class="btn btn-primary py-2 mr-1">Book now</a> <a href="#"
-                                            class="btn btn-secondary py-2 ml-1">Details</a></p>
+                                    <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book
+                                            now</a> <a href="#" class="btn btn-secondary py-2 ml-1">Details</a></p>
                                 </div>
                             </div>
                         </div>
@@ -150,9 +148,8 @@
                                         <span class="cat">Cheverolet</span>
                                         <p class="price ml-auto">$500 <span>/day</span></p>
                                     </div>
-                                    <p class="d-flex mb-0 d-block"><a href="#"
-                                            class="btn btn-primary py-2 mr-1">Book now</a> <a href="#"
-                                            class="btn btn-secondary py-2 ml-1">Details</a></p>
+                                    <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book
+                                            now</a> <a href="#" class="btn btn-secondary py-2 ml-1">Details</a></p>
                                 </div>
                             </div>
                         </div>
@@ -177,7 +174,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <section class="ftco-section ftco-about">
         <div class="container">
