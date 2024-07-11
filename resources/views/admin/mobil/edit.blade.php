@@ -116,7 +116,7 @@
                                     Mobil</label>
 
                                 <div class="col-md-6">
-                                    <input id="harga_sewa" type="tetxt"
+                                    <input id="harga_sewa" type="number"
                                         class="form-control @error('harga_sewa') is-invalid @enderror" name="harga_sewa"
                                         value="{{ $mobil->harga_sewa }}" required autocomplete="harga_sewa">
 

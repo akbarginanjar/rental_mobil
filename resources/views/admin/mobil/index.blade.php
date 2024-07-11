@@ -3,7 +3,7 @@
 @section('content')
     <link rel="stylesheet" href="{{ asset('DataTables/datatables.min.css') }}">
     <script>
-        $(foj `ndocument).ready(function() {
+        $(document).ready(function() {
             $('#mobil').DataTable();
         });
     </script>
@@ -61,7 +61,15 @@
                                     <td class="px-6 py-4"> {{ $item->merk }} </td>
                                     <td class="px-6 py-4"> {{ $item->jenis }} </td>
                                     <td class="px-6 py-4"> {{ $item->harga_sewa }} </td>
-                                    <td class="px-6 py-4"> {{ $item->status }} </td>
+                                    <td class="px-6 py-4">
+                                        @if ($item->status == 'Tersedia')
+                                            <div class="bg-success text-white p-1 rounded text-center" style="width: 80px;">
+                                                Tersedia</div>
+                                        @else
+                                            <div class="bg-primary text-white p-1 rounded text-center" style="width: 80px;">
+                                                Sedang Disewa</div>
+                                        @endif
+                                    </td>
                                     <td style="width: 200px;">
                                         <form class="" action="{{ route('mobil.destroy', $item->id) }}"
                                             method="post">
