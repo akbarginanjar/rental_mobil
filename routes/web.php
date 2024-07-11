@@ -42,4 +42,7 @@ Route::middleware(['auth','member'])->prefix('member')->group(function () {
     });
     Route::post('/mobil/{mobil:slug}/sewa', [MemberController::class, 'sewa']);
     Route::post('/mobil/{mobil:slug}/prosesSewa', [MemberController::class, 'prosesSewa']);
+    Route::put('/profile/{id}', 'ProfileController@update')->name('profile.update');
+Route::get('/profile/{id}', 'ProfileController@show')->name('profile.show');
+
 });
