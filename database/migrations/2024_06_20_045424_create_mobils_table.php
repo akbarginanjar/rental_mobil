@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('plat');
             $table->string('nomor_mobil');
             $table->string('merk');
+            $table->string('slug');
             $table->string('jenis');
             $table->text('deskripsi');
             $table->integer('harga_sewa');

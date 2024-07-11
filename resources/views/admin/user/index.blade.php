@@ -52,8 +52,10 @@
                                              @csrf
                                              <a href="{{ route('user.edit', $item->id) }}"
                                                  class="btn btn-warning text-white btn-sm">Edit</a>
-                                             <button type="submit" class="btn btn-outline-danger btn-sm"
-                                                 onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">Delete</button>
+                                             @if ($item->id != 1)
+                                                 <button type="submit" class="btn btn-outline-danger btn-sm"
+                                                     onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">Delete</button>
+                                             @endif
                                          </form>
                                      </td>
                                  </tr>

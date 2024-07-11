@@ -1,7 +1,7 @@
 <header class="topbar" data-navbarbg="skin6">
     <nav class="navbar top-navbar navbar-expand-md navbar-light">
         <div class="navbar-header" data-logobg="skin6">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="/admin/dashboard">
                 {{-- <b class="logo-icon">
                     <img src="{{ asset('images/icon-moobil.png') }}" alt="homepage" class="dark-logo" />
                     <img src="{{ asset('images/icon-moobil.png') }}" alt="homepage" class="light-logo" />
