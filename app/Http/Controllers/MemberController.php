@@ -43,6 +43,7 @@ class MemberController extends Controller
             $transaksi->tgl_sewa = $request->tgl_sewa;
             $transaksi->tgl_pengembalian = $request->tgl_pengembalian;
             $transaksi->lama_sewa = $request->lama_sewa;
+            $transaksi->status = 1;
             $transaksi->total_bayar = $request->total_bayar;
             if ($request->hasFile('bukti_bayar')) {
                 $image = $request->file('bukti_bayar');
@@ -59,6 +60,7 @@ class MemberController extends Controller
             $transaksi->tgl_pengembalian = $request->tgl_pengembalian;
             $transaksi->lama_sewa = $request->lama_sewa;
             $transaksi->total_bayar = $request->total_bayar;
+            $transaksi->status = 1;
             if ($request->hasFile('bukti_bayar')) {
                 $image = $request->file('bukti_bayar');
                 $name = rand(1000, 9999) . $image->getClientOriginalName();

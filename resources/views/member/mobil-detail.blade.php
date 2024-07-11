@@ -55,7 +55,9 @@
                             <hr>
                             <form action="/member/mobil/{{ $mobil->slug }}/sewa" method="post">
                                 @csrf
-                                <div class="input-group input-group-sm mb-3" style="display: flex; justify-content: right;">
+                                <div style="font-size: 13px;" class="text-right">Lama Sewa</div>
+                                <div class="input-group input-group-sm mb-3 mt-1"
+                                    style="display: flex; justify-content: right;">
                                     <input type="number" name="lama_sewa"
                                         class="form-control col-sm-4"aria-describedby="basic-addon2">
                                     <div class="input-group-append">

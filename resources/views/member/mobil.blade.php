@@ -42,7 +42,13 @@
                                         style="padding: 2px 5px; font-size: 12px; color:white;">
                                         Sedang disewa</div><br>
                                 @endif
-                                <a href="/mobil/{{ $item->slug }}" class="btn btn-secondary btn-block mt-3">Booking</a>
+                                @if ($item->status == 'Tersedia')
+                                    <a href="/mobil/{{ $item->slug }}"
+                                        class="btn btn-secondary btn-block mt-3">Booking</a>
+                                @else
+                                    <a href="/mobil/{{ $item->slug }}"
+                                        class="btn btn-secondary btn-block mt-3 disabled">Booking</a>
+                                @endif
                             </div>
                         </div>
                     </div>

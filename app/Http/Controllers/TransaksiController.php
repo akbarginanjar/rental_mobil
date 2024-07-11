@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Transaksi;
+use App\Models\Mobil;
 use Illuminate\Http\Request;
 
 class TransaksiController extends Controller
@@ -12,7 +13,28 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-        //
+        $transaksi = Transaksi::orderBy('created_at', 'desc')->get();
+        return view('admin.transaksi.index', compact('transaksi'));
+    }
+
+    public function prosesBuktiBayar($id) {
+        $transaksi = Transaksi::findOrFail($id);
+        $transaksi->status = 2;
+        $transaksi->save();
+        $mobil = Mobil::findOrFail($transaksi->id_mobil);
+        $mobil->status = 'Sedang Disewa';
+        $mobil->save();
+        return redirect()->back();
+    }
+
+    public function prosesPengembalian($id) {
+        $transaksi = Transaksi::findOrFail($id);
+        $transaksi->status = 3;
+        $transaksi->save();
+        $mobil = Mobil::findOrFail($transaksi->id_mobil);
+        $mobil->status = 'Tersedia';
+        $mobil->save();
+        return redirect()->back();
     }
 
     /**

@@ -26,6 +26,7 @@ return new class extends Migration
             $table->date('tgl_sewa');
             $table->integer('lama_sewa');
             $table->string('total_bayar');
+            $table->string('status');
             $table->string('bukti_bayar')->nullable();
             $table->string('tgl_pengembalian');
             $table->timestamps();
