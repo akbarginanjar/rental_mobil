@@ -68,24 +68,27 @@
                                         @elseif($item->status == '2')
                                             <div class="bg-warning text-white p-1 rounded text-center" style="width: 80px;">
                                                 Sedang Disewa</div>
-                                        @else
+                                        @elseif($item->status == '3')
                                             <div class="bg-success text-white p-1 rounded text-center" style="width: 80px;">
                                                 Selesai</div>
+                                        @else
+                                            <div class="bg-danger text-white p-1 rounded text-center" style="width: 80px;">
+                                                Ditolak</div>
                                         @endif
                                     </td>
                                     <td style="width: 200px;">
                                         <button type="button" class="btn btn-info btn-sm text-white mb-1"
-                                            data-bs-toggle="modal" data-bs-target="#buktiBayar">
+                                            data-bs-toggle="modal" data-bs-target="#buktiBayar{{ $item->id }}">
                                             Bukti Bayar
                                         </button>
                                         @if ($item->status == '2')
                                             <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                                                data-bs-target="#pengembalianMobil">Pengembalian
+                                                data-bs-target="#pengembalianMobil{{ $item->id }}">Pengembalian
                                                 Mobil</button>
                                         @endif
                                     </td>
                                 </tr>
-                                <div class="modal fade" id="pengembalianMobil" tabindex="-1"
+                                <div class="modal fade" id="pengembalianMobil{{ $item->id }}" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <form action="/admin/transaksi/{{ $item->id }}/prosesPengembalian"
@@ -129,43 +132,50 @@
                                         </form>
                                     </div>
                                 </div>
-                                <div class="modal fade" id="buktiBayar" tabindex="-1"
+                                <div class="modal fade" id="buktiBayar{{ $item->id }}" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
-                                        <form action="/admin/transaksi/{{ $item->id }}/prosesBuktiBayar"
-                                            method="POST" enctype="multipart/form-data">
-                                            @csrf
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Bukti Bayar
-                                                    </h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div style="font-size: 13px;" class="">Nama Lengkap</div>
-                                                    <input type="text" class="form-control form-control-sm mb-2"
-                                                        value="{{ $item->penyewa->user->name }}" disabled>
-                                                    <div style="font-size: 13px;" class="">No Telepon/Whatsapp</div>
-                                                    <input type="text" class="form-control form-control-sm mb-2"
-                                                        value="{{ $item->penyewa->no_telepon }}" disabled>
-                                                    <div style="font-size: 13px;" class="">Alamat</div>
-                                                    <input type="text" class="form-control form-control-sm mb-2"
-                                                        value="{{ $item->penyewa->alamat }}" disabled>
-                                                    <img src="{{ $item->buktiBayar() }}" class="img-fluid rounded"
-                                                        alt="Bukti Bayar">
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Tutup</button>
+
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Bukti Bayar
+                                                </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div style="font-size: 13px;" class="">Nama Lengkap</div>
+                                                <input type="text" class="form-control form-control-sm mb-2"
+                                                    value="{{ $item->penyewa->user->name }}" disabled>
+                                                <div style="font-size: 13px;" class="">No Telepon/Whatsapp</div>
+                                                <input type="text" class="form-control form-control-sm mb-2"
+                                                    value="{{ $item->penyewa->no_telepon }}" disabled>
+                                                <div style="font-size: 13px;" class="">Alamat</div>
+                                                <input type="text" class="form-control form-control-sm mb-2"
+                                                    value="{{ $item->penyewa->alamat }}" disabled>
+                                                <img src="{{ $item->buktiBayar() }}" class="img-fluid rounded"
+                                                    alt="Bukti Bayar">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <form action="/admin/transaksi/{{ $item->id }}/prosesTolak"
+                                                    method="POST" enctype="multipart/form-data">
+                                                    @csrf
+                                                    @if ($item->status == '1')
+                                                        <button type="submit"
+                                                            class="btn btn-danger text-white">Tolak</button>
+                                                    @endif
+                                                </form>
+                                                <form action="/admin/transaksi/{{ $item->id }}/prosesBuktiBayar"
+                                                    method="POST" enctype="multipart/form-data">
+                                                    @csrf
                                                     @if ($item->status == '1')
                                                         <button type="submit" class="btn btn-success text-white">Ya,
                                                             Sudah
                                                             Bayar</button>
                                                     @endif
-                                                </div>
+                                                </form>
                                             </div>
-                                        </form>
+                                        </div>
                                     </div>
                                 </div>
                             @endforeach

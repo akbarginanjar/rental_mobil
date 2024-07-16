@@ -12,7 +12,8 @@ class PenyewaController extends Controller
      */
     public function index()
     {
-        //
+        $penyewa = Penyewa::orderBy('created_at', 'desc')->get();
+        return view('admin.penyewa.index', compact('penyewa'));
     }
 
     /**

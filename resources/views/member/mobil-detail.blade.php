@@ -58,7 +58,7 @@
                                 <div style="font-size: 13px;" class="text-right">Lama Sewa</div>
                                 <div class="input-group input-group-sm mb-3 mt-1"
                                     style="display: flex; justify-content: right;">
-                                    <input type="number" name="lama_sewa"
+                                    <input type="number" name="lama_sewa" required
                                         class="form-control col-sm-4"aria-describedby="basic-addon2">
                                     <div class="input-group-append">
                                         <span class="input-group-text" id="basic-addon2">Hari</span>

@@ -29,7 +29,7 @@
                             <div class="text">
                                 <h2 class="mb-0"><a href="/mobil/{{ $item->slug }}">{{ $item->merk }}</a></h2>
                                 <div class="d-flex mb-1">
-                                    <span class="cat">{{ $item->jenis }}</span>
+                                    <span class="cat">{{ Str::limit($item->jenis, 13) }}</span>
                                     <p class="price ml-auto">Rp.
                                         {{ number_format($item->harga_sewa, 0, ',', '.') }}<span>/Perhari</span></p>
                                 </div>

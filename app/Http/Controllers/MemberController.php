@@ -71,5 +71,23 @@ class MemberController extends Controller
         }
         return redirect('/member/profil');
     }
+    public function profil() {
+        $penyewaCek = Auth::user()->penyewa;
+        if($penyewaCek == '[]') {
+            return view('member.form-penyewa');
+        } else {
+        $transaksi = Transaksi::where('id_penyewa', Auth::user()->penyewa[0]->id)->orderBy('created_at', 'desc')->get();
+        $countTransaksi = Transaksi::where('id_penyewa', Auth::user()->penyewa[0]->id)->where('status', 2)->count();
+        return view('member.profil', compact('transaksi', 'countTransaksi'));
+        }
+    }
 
+    public function simpanPenyewa(Request $request){
+        $penyewa = new Penyewa();
+        $penyewa->id_user = Auth::user()->id;
+        $penyewa->no_telepon = $request->no_telepon;
+        $penyewa->alamat = $request->alamat;
+        $penyewa->save();
+        return redirect('/member/profil');
+    }
 }

@@ -13,11 +13,17 @@
                             <div class="text-dark mb-2"><b> Lengkapi data pribadi</b></div>
                             <div class="form-group">
                                 <label>Nomor Telepon/Whatsapp</label>
-                                <input type="number" class="form-control form-control-sm" name="no_telepon">
+                                <input type="number" required class="form-control form-control-sm" name="no_telepon">
+                                @error('no_telepon')
+                                    <div class="error">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label>Alamat Lengkap</label>
-                                <textarea name="alamat" class="form-control" rows="3"></textarea>
+                                <textarea name="alamat" required class="form-control" rows="3"></textarea>
+                                @error('alamat')
+                                    <div class="error">{{ $message }}</div>
+                                @enderror
                             </div>
                             <hr>
                         @endif
@@ -45,14 +51,14 @@
                                 <div style="font-size: 13px;" class="mb-1 mt-2">Upload Bukti Bayar</div>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" name="bukti_bayar" onchange="tampilkanPreview(this,'preview')"
-                                            accept="image/*" autocomplete="bukti_bayar" class="custom-file-input"
-                                            id="inputGroupFile04">
+                                        <input type="file" name="bukti_bayar" required
+                                            onchange="tampilkanPreview(this,'preview')" accept="image/*"
+                                            autocomplete="bukti_bayar" class="custom-file-input" id="inputGroupFile04">
                                         <label class="custom-file-label" for="inputGroupFile04">Upload disini</label>
                                     </div>
                                 </div>
-                                <div style="font-size: 13px;" class="mb-1 mt-2">Upload Bukti Bayar</div>
-                                <input type="date" name="tgl_sewa" id="inputDate" class="form-control"
+                                <div style="font-size: 13px;" class="mb-1 mt-2">Tanggal Mulai Sewa</div>
+                                <input type="date" name="tgl_sewa" id="inputDate" required class="form-control"
                                     onchange="hitungTanggal()">
                                 <input type="number" id="inputDays" min="1" value="{{ $lamaSewa }}" hidden>
                                 <h5 id="result" class="mt-4"></h5>

@@ -37,6 +37,16 @@ class TransaksiController extends Controller
         return redirect()->back();
     }
 
+    public function prosesTolak($id) {
+        $transaksi = Transaksi::findOrFail($id);
+        $transaksi->status = 4;
+        $transaksi->save();
+        $mobil = Mobil::findOrFail($transaksi->id_mobil);
+        $mobil->status = 'Tersedia';
+        $mobil->save();
+        return redirect()->back();
+    }
+
     /**
      * Show the form for creating a new resource.
      */
